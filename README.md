@@ -19,10 +19,39 @@ We strongly recommend using Anaconda to create an isolated virtual environment, 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 ```
-### Data Preparation
-Our model works with paired Non-Contrast CT (NCCT) and Contrast-Enhanced CT (CECT) images.
-### 1. Dataset Structure
-Please organize your data as follows. We recommend converting 3D NIfTI volumes into 2D slices (e.g., .png or .npy) for training efficiency, or use our provided dataloader for on-the-fly slicing.
+## 3. Data Preparation
+Our model requires paired 2D slices in `.npy` format. **The filenames of the condition (NCCT) and target (CECT) must correspond exactly to each other** (one-to-one mapping is required for successful training).
+
+### 3.1 Required Directory Structure
+Please organize your dataset in the following directory structure strictly (the root directory is the `AR-VAR` project folder):
+```bash
+AR-VAR/
+└── datasets/
+├── train_condition/ # Place Non-Contrast CT (NCCT) slices here (input conditions)
+│ ├── case001_slice001.npy
+│ ├── case001_slice002.npy
+│ └── ...
+└── train/class_0 # Place Contrast-Enhanced CT (CECT) slices here (training targets)
+├── case001_slice001.npy <-- Filename must match corresponding NCCT slice
+├── case001_slice002.npy
+└── ...
+```
+## 4. Model Zoo & Pre-trained Weights
+AR-VAR is built upon the **VAR (Visual Autoregressive Modeling)** framework. For faster model convergence and better performance (especially for low-data scenarios), **you can optionally use the official pre-trained VAR weights** to initialize the base model (VAE and Transformer). Direct use of these pre-trained weights is highly recommended to ensure consistency with the experimental results reported in our paper.
+
+### 4.1 Pre-trained Weight Details
+Please download the required pre-trained weights from the official VAR HuggingFace Repository, and place the downloaded files in the project's `checkpoints/` directory (create the directory manually if it does not exist).
+
+| Component | File Name | Description | Download Link |
+| :-------- | :-------- | :---------- | :------------ |
+| VAE | `vae_ch160v4096z32.pth` | The VQ-VAE model for image tokenization (core component for feature encoding) | [Official VAR VAE Weights](https://huggingface.co/xxx/var-official/resolve/main/vae_ch160v4096z32.pth) |
+| VAR Model | `var_d16.pth` | Pre-trained VAR model with depth-16 architecture (base autoregressive model) | [Official VAR Depth-16 Weights](https://huggingface.co/xxx/var-official/resolve/main/var_d16.pth) |
+
+### 4.2 Notes on Model Initialization
+- The pre-trained weights above are only for the **base VAR framework** (VAE and Transformer). 
+- Our AR-VAR introduces additional anatomy-aware control modules (RCAR), which are either initialized from scratch or fine-tuned via the training commands provided in the subsequent sections (no pre-trained weights are required for these custom modules).
+- If you choose not to use the pre-trained VAR weights, the model will be initialized randomly from scratch — note that this may lead to longer training time and slightly degraded performance (especially on small datasets).
+
 ## Train AR-VAR
 ```bash
 torchrun --nproc_per_node=7 --nnodes=... --node_rank=... --master_addr=... --master_port=... train.py \
