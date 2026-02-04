@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ## Data Preparation
 Our model requires paired 2D slices in `.npy` format. **The filenames of the condition (NCCT) and target (CECT) must correspond exactly to each other** (one-to-one mapping is required for successful training).
 
-### 3.1 Required Directory Structure
+### 1. Required Directory Structure
 Please organize your dataset in the following directory structure strictly (the root directory is the `AR-VAR` project folder):
 ```bash
 AR-VAR/
