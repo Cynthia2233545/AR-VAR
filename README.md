@@ -19,7 +19,7 @@ We strongly recommend using Anaconda to create an isolated virtual environment, 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 ```
-## 3. Data Preparation
+## Data Preparation
 Our model requires paired 2D slices in `.npy` format. **The filenames of the condition (NCCT) and target (CECT) must correspond exactly to each other** (one-to-one mapping is required for successful training).
 
 ### 3.1 Required Directory Structure
@@ -36,7 +36,7 @@ AR-VAR/
 ├── case001_slice002.npy
 └── ...
 ```
-## 4. Model Zoo & Pre-trained Weights
+## Model Zoo & Pre-trained Weights
 AR-VAR is built upon the **VAR (Visual Autoregressive Modeling)** framework. For faster model convergence and better performance (especially for low-data scenarios), **you can optionally use the official pre-trained VAR weights** to initialize the base model.
 
 ### 1. Pre-trained Weight Details
