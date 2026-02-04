@@ -44,8 +44,8 @@ Please download the required pre-trained weights from the official VAR HuggingFa
 
 | Component | File Name | Description | Download Link |
 | :-------- | :-------- | :---------- | :------------ |
-| VAE | `vae_ch160v4096z32.pth` | The VQ-VAE model for image tokenization (core component for feature encoding) | [Official VAR VAE Weights](https://huggingface.co/xxx/var-official/resolve/main/vae_ch160v4096z32.pth) |
-| VAR Model | `var_d16.pth` | Pre-trained VAR model with depth-16 architecture (base autoregressive model) | [Official VAR Depth-16 Weights](https://huggingface.co/xxx/var-official/resolve/main/var_d16.pth) |
+| VAE | `vae_ch160v4096z32.pth` | The VQ-VAE model for image tokenization (core component for feature encoding) | [Official VAR VAE Weights](https://huggingface.co/FoundationVision/var/resolve/main/vae_ch160v4096z32.pth) |
+| VAR Model | `var_d16.pth` | Pre-trained VAR model with depth-16 architecture (base autoregressive model) | [Official VAR Depth-16 Weights](https://huggingface.co/FoundationVision/var/resolve/main/vae_ch160v4096z32.pth) |
 
 ### 4.2 Notes on Model Initialization
 - The pre-trained weights above are only for the **base VAR framework** (VAE and Transformer). 
