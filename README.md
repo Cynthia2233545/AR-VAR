@@ -1,4 +1,5 @@
 # AR-VAR: Anatomy-Aware Visual Autoregressive Models for Virtual Tumor CT Contrast Enhancement
+This research proposes a novel Anatomy-Aware Visual Autoregressive (AR-VAR) framework, which synergistically integrates an Anatomical Alignment and Embedding Module (AAEM) with a Residual Controllable Autoregressive Module (RCAR). This approach is capable of generating high-fidelity virtual contrast-enhanced (VCE) tumor images directly from non-contrast CT scans, effectively addressing the open problems of structural distortion and boundary blurring within complex anatomical backgrounds. Our model has been successfully applied to tumor enhancement tasks across distinct clinical datasets, including Head and Neck carcinoma and Liver Hepatocellular Carcinoma. Compared to other methods, our extensive experimental results demonstrate significant advantages in both quantitative image quality and clinical diagnostic utility.
 ## Installation
 ### 1. Clone the Repository
 First, clone the official code repository to your local machine via the following Git command:
