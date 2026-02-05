@@ -44,7 +44,7 @@ AR-VAR/
 └── ...
 ```
 ## Model Zoo & Pre-trained Weights
-AR-VAR is built upon the **VAR (Visual Autoregressive Modeling)** framework. For faster model convergence and better performance (especially for low-data scenarios), **you can optionally use the official pre-trained VAR weights** to initialize the base model.
+AR-VAR is built upon the **VAR (Visual Autoregressive Modeling)** framework. For faster model convergence, **you can optionally use the official pre-trained VAR weights** to initialize the base model.
 
 ### 1. Pre-trained Weight Details
 Please download the required pre-trained weights from the official VAR HuggingFace Repository.
