@@ -59,7 +59,7 @@ Please download the required pre-trained weights from the official VAR HuggingFa
 ```bash
 torchrun --nproc_per_node=7 --nnodes=... --node_rank=... --master_addr=... --master_port=... train.py \
   --data_path=/path/to/datasets --condition_path=/path/to/datasets/train_condition \
-  --depth=16 --bs=768 --ep=300 --fp16=1
+  --depth=16 --bs=32 --ep=300 --fp16=1
  ```
 ## Inference
 ```bash
