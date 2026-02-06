@@ -10,7 +10,7 @@ This research proposes a novel Anatomy-Aware Visual Autoregressive (AR-VAR) fram
 ### 1. Clone the Repository
 First, clone the official code repository to your local machine via the following Git command:
 ```bash
-git clone [https://github.com/YourUsername/AR-VAR](https://github.com/Cynthia2233545/AR-VAR).git
+git clone https://github.com/Cynthia2233545/AR-VAR.git
 cd AR-VAR
 ```
 
